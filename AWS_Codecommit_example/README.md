@@ -120,4 +120,19 @@ They contain:
 </details>
 <br>
 
+## <u>Steps in creating CodeDeploy<u>
+
+![code_commit_step10](https://user-images.githubusercontent.com/50704452/112957961-42d42300-9142-11eb-95e2-8cd0cf9571bf.png)
 ----
+![code_commit_step11](https://user-images.githubusercontent.com/50704452/112963326-8b420f80-9147-11eb-8249-7c9fd5716b4c.png)
+
+![code_commit_step12](https://user-images.githubusercontent.com/50704452/112963376-99902b80-9147-11eb-862e-50aebfdd0123.png)
+
+![code_commit_step13](https://user-images.githubusercontent.com/50704452/112963435-a90f7480-9147-11eb-88bd-e4c7cc397fa6.png)
+
+
+## Creating a CodePipeline
+
+-Details for source
+
+![code_commit_step14](https://user-images.githubusercontent.com/50704452/112964230-6b5f1b80-9148-11eb-8689-9e1bf7ab0d25.png)
