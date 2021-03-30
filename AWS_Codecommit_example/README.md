@@ -59,6 +59,19 @@ Step 8: Push files to repo
 
 Step 9 : Create a role
 
+----
+<details>
+<summary>What are IAM roles?</summary>
+<br>
+    - An IAM role is a set of permissions that define what actions are allowed and denied by an entity in the AWS console
+<br>
+    - Role permissions are temporary credentials
+</details>
+<br>
+
+----
+
+ ### <u>Step to create role</u>
 1) Select Trusted entity
 2) Choose a use case
 3) Add pemission 
@@ -66,12 +79,33 @@ Step 9 : Create a role
 4) Add a name to role
 
 
-To launch instance
+To launch EC2 instance
+
+----
+<details>
+<summary>What is a EC2 instance? </summary>
+<br>
+    - Virtual server in Amazon Web services that focuses on scalable computing capacity
+<br>
+    - Able to launch as many or as few virtual servers as you need, configure security and networking, and manage storage
+<br>
+<br>  
+They contain:
+<br>
+
+ - Virtual computing environments, known as "Instances"
+
+ - Preconfigured templates known as "Amazon Machine Images"(AMIs)
+<br>
+</details>
+<br>
+
+----
 
 
 ![code_commit_step9](https://user-images.githubusercontent.com/50704452/112839014-fdf6b080-909d-11eb-89cc-972136588bd6.png)
 
-
+Step 10: Create a 
 ###- Roles vs Policies
 
 
