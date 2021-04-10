@@ -1,2 +1,2 @@
-# AWS_Practice
-Learning about AWS codepiplines
+# DevOp Learning
+ A central location for my DevOp related learning tasks
