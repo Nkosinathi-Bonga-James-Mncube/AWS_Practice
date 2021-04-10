@@ -1,0 +1,62 @@
+---
+- name: Launch elastic +open distro
+  hosts: localhost
+  tasks:
+    - name: Install Docker Module for Python
+      pip:
+        name: docker
+
+    - name: Install Docker-compose for Python
+      pip:
+        name: docker-compose
+
+    - name: Pull elastic
+      docker_image:
+        name: amazon/opendistro-for-elasticsearch:latest
+        source: pull
+
+    - name: Pull kibana
+      docker_image:
+        name: amazon/opendistro-for-elasticsearch-kibana:latest
+        source: pull
+       
+    - name: set maximum map count in sysctl/systemd
+      become: true
+      sysctl: name=vm.max_map_count value=262144 state=present
+
+    - name : Run docker-compose
+      docker_compose:
+        project_src: /home/devadmin/Desktop/MMI_test # dynamic location
+
+    - name : Download metricbeat
+      vars:
+        ansible_python_interpreter: "/usr/bin/python3"
+      get_url:
+        url: https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.12.0-amd64.deb #creat folder to download
+        dest: '{{playbook_dir}}'
+
+    - name: Extract zip and install
+      become: true
+      command : dpkg -i metricbeat-7.12.0-amd64.deb
+        
+
+    - name: Change default metricbeat config folder
+      become: true
+      template:
+        src: metricbeat.yml
+        dest: /etc/metricbeat/metricbeat.yml
+
+    - name : Enable and configure the docker 
+      become: true
+      command: metricbeat modules enable docker
+    
+    - name : Setup metricbeat
+      become: true
+      command: metricbeat setup
+      vars:
+        ansible_user: 'admin'
+        ansible_password: 'admin'
+
+    - name : Start metric service
+      become: true
+      command: service metricbeat start
