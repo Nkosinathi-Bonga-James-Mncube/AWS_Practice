@@ -1,7 +1,7 @@
 # Anisible setup to install ElasticSearch , Opendistro and Kibana
 
 - Create a ansible playbook to setup Elastricsearch, opendistro and Kibana on localhost using docker-compose
-- A default template was used to setting up Elasticsearch and Kibana 
+- A default template was used for setting up Elasticsearch and Kibana 
 - More info : https://opendistro.github.io/for-elasticsearch-docs/docs/install/docker/
 
 # How it works
