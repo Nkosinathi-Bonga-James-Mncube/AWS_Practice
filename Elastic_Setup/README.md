@@ -57,8 +57,6 @@
 **9.Start metricbeat**
    - Start the shipper
 
-- Finally ansible playbook is run and step-by-step each task is run on localhost
-
 # Installation
 1. Install pipenv
 2. Clone repo
