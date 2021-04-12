@@ -28,7 +28,10 @@
 </details>
 <br>
 
-**4.Download Metricbeat deb package and installing**
+**4.Run docker-compose**
+- Configure docker containers
+
+**5.Download Metricbeat deb package and installing**
 
 <details>
 <summary>What is Metricbeat?</summary>
@@ -42,16 +45,16 @@
 </details>
 <br>
 
-**5.Configure metricbeat.yml settings**
+**6.Configure metricbeat.yml settings**
  - Replace the default metricbeat folder with custom metricbeat details
 
-**6.Enable metricbeat modules**
+**7.Enable metricbeat modules**
  - Enable which module will be used by metricbeat having access to its metricsets (e.g for Docker CPU, containter,network etc.)
 
-**7.Run the metricbeat setup command**
+**8.Run the metricbeat setup command**
   - Initialize environment(e.g index template,ILM policies,Kibana dashboard etc.)
 
-**8.Start metricbeat**
+**9.Start metricbeat**
    - Start the shipper
 
 - Finally ansible playbook is run and step-by-step each task is run on localhost
