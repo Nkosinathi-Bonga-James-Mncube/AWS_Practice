@@ -26,16 +26,16 @@
 
     - name : Run docker-compose
       docker_compose:
-        project_src: /home/devadmin/Desktop/MMI_test # dynamic location
+        project_src: /home/devadmin/Desktop/MMI_test
 
     - name : Download metricbeat
       vars:
         ansible_python_interpreter: "/usr/bin/python3"
       get_url:
-        url: https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.12.0-amd64.deb #creat folder to download
+        url: https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.12.0-amd64.deb
         dest: '{{playbook_dir}}'
 
-    - name: Extract zip and install
+    - name: Install metricbeat
       become: true
       command : dpkg -i metricbeat-7.12.0-amd64.deb
         
