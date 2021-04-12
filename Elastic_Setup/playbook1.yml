@@ -26,7 +26,7 @@
 
     - name : Run docker-compose
       docker_compose:
-        project_src: /home/devadmin/Desktop/MMI_test
+        project_src: '{{playbook_dir}}'
 
     - name : Download metricbeat
       vars:
