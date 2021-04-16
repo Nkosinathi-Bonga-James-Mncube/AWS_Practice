@@ -5,8 +5,7 @@
 
 ## Prerequisite
  - Create inventory file with ip-address and location of ssh RSA key(.pem)
- - Add .pem file to ssh into EC2 instance
-
+ 
 # How it works
 The following task are executed in playbook:
 
