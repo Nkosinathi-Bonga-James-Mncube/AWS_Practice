@@ -14,7 +14,7 @@ The following task are executed in playbook:
  2. Docker-compose
 
 **2.Start Docker and Enable docker**
-- Enable docke at kernal level with systemctl
+- Enable docker at kernal level with systemctl
 
 **3.Copy Docker-compose file to EC2**
 - Copy docker-compose file to system being able to run it
@@ -30,9 +30,8 @@ The following task are executed in playbook:
 
 # Installation
 1. Install pipenv
-2. Create pipenv
-3. Clone repo
-
+2. Clone repo
+3. Create pipenv
 ```
 pipenv --three
 ```
