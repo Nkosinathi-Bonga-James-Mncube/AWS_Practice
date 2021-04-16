@@ -5,7 +5,7 @@
 
 ## Prerequisite
  - Create inventory file with ip-address and location of ssh RSA key(.pem)
- 
+
 # How it works
 The following task are executed in playbook:
 
@@ -31,21 +31,22 @@ The following task are executed in playbook:
 # Installation
 1. Install pipenv
 2. Create pipenv
+3. Clone repo
 
 ```
 pipenv --three
 ```
 
-3. Activte virtual environment
+4. Activte virtual environment
 ```
 pipenv shell
 ```
-4. Install packages
+5. Install packages
 ```
 pip install -r requirements.txt
 ```
-5. Run VPN (optinal)
-6. SSH into EC2 instance:
+6. Run VPN (optinal)
+7. SSH into EC2 instance:
 
 ```
 sudo ssh -i intern.pem ec2-user@{{IP_ADDRESS}}
