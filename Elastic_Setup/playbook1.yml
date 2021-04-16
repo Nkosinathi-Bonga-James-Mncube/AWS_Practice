@@ -46,7 +46,7 @@
         src: metricbeat.yml
         dest: /etc/metricbeat/metricbeat.yml
 
-    - name : Enable and configure the docker 
+    - name : Enable and configure the metricbeat 
       become: true
       command: metricbeat modules enable docker
     

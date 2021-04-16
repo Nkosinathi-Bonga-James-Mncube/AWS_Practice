@@ -1,0 +1,75 @@
+version: '3'
+services:
+  odfe-master:
+    image: ibs-docker.dkrreg.mmih.biz/opendistro-for-elasticsearch:1.13.2
+    container_name: odfe-master
+    environment:
+      - cluster.name=odfe-cluster
+      - node.name=odfe-master
+      - node.master=true
+      - node.data=false
+      - node.ingest=false
+      - network.host=10.242.1.163
+      - discovery.seed_hosts=10.242.1.163,10.242.1.167
+      - cluster.initial_master_nodes=odfe-master, 10.242.1.167
+      - bootstrap.memory_lock=true 
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    network_mode: host
+# 
+  odfe-d1:
+    image: ibs-docker.dkrreg.mmih.biz/opendistro-for-elasticsearch:1.13.2
+    container_name: odfe-d1
+    environment:
+      - cluster.name=odfe-cluster
+      - node.name=odfe-d1
+      - node.master=false
+      - node.ingest=true
+      - node.data=true
+      - network.host=10.242.1.163
+      - discovery.seed_hosts=10.242.1.163,10.242.1.167
+      - cluster.initial_master_nodes=odfe-master
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    network_mode: host
+      
+  odfe-d2:
+    image: ibs-docker.dkrreg.mmih.biz/opendistro-for-elasticsearch:1.13.2
+    container_name: odfe-d2
+    environment:
+      - cluster.name=odfe-cluster
+      - node.name=odfe-d2
+      - node.master=false
+      - node.ingest=true
+      - node.data=true
+      - network.host=10.242.1.163
+      - discovery.seed_hosts=10.242.1.163,10.242.1.167
+      - cluster.initial_master_nodes=odfe-master
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    network_mode: host
+
+volumes:
+  odfe-data1:
+  odfe-data2:

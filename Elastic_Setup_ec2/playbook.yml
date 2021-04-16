@@ -1,0 +1,45 @@
+---
+- name: Launch setting up elasticsearch and opendistro
+  hosts: all
+  
+  tasks:
+
+    - name: Install Docker Module for Python
+      shell: amazon-linux-extras install docker -y
+      become: true
+      become_user: root
+
+    - name: Install Docker-compose for Python
+      shell: sudo curl -L "https://github.com/docker/compose/releases/download/1.29.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+      
+    - name: start docker 
+      shell: systemctl start docker
+      become: true  
+      become_user: root
+
+    - name: enable docker 
+      shell: systemctl enable docker
+      become: true
+      become_user: root
+
+    - copy:
+        src: docker-compose.yml
+        dest: /tmp/
+
+    - name: Pull elastic
+      become: true
+      shell: docker pull amazon/opendistro-for-elasticsearch:1.13.2
+
+    - name: Pull kibana
+      become: true
+      shell: docker pull amazon/opendistro-for-elasticsearch:1.13.2
+
+    - name: set maximum map count in sysctl/systemd
+      become: true
+      sysctl: name=vm.max_map_count value=262144 state=present
+
+    - name: deploy Docker Compose stack
+      shell: /usr/local/bin/docker-compose up -d
+      args:
+        chdir: /tmp/
+      become: true
