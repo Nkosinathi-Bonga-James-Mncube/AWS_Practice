@@ -1,10 +1,10 @@
 # Setting Opendistro and Elastic on AWS EC2 instance
 
  - Created a ansible playbook to setup Elastricsearch, Opendistro and Kibana on AWS EC2 instance
- - Created a inventory file with ec2 ip address with location of ssh key
+ - Created a inventory file with ec2 ip address with location of ssh RSA key(.pem)
 
 ## Prerequisite
- - Create inventory file with ip-address and location of ssh key
+ - Create inventory file with ip-address and location of ssh RSA key(.pem)
  - Add .pem file to ssh into EC2 instance
 
 # How it works
@@ -46,7 +46,7 @@ pipenv shell
 pip install -r requirements.txt
 ```
 5. Run VPN (optinal)
-6. ssh into EC2 instance:
+6. SSH into EC2 instance:
 
 ```
 sudo ssh -i intern.pem ec2-user@{{IP_ADDRESS}}
