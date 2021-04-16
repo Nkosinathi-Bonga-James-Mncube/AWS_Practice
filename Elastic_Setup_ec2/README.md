@@ -30,13 +30,28 @@ The following task are executed in playbook:
 **6.Lauch docker compose**
 
 # Installation
-1) Run VPN
-2) ssh into EC2 instance:
+1. Install pipenv
+2. Create pipenv
+
+```
+pipenv --three
+```
+
+3. Activte virtual environment
+```
+pipenv shell
+```
+4. Install packages
+```
+pip install -r requirements.txt
+```
+5. Run VPN (optinal)
+6. ssh into EC2 instance:
 
 ```
 sudo ssh -i intern.pem ec2-user@{{IP_ADDRESS}}
 ```
-3) Run Ansible playbook with command: 
+8.  Run Ansible playbook with command: 
 
 ```
 ansible-playbook playbook.yml -i inventory
