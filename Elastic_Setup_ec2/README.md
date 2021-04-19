@@ -55,3 +55,20 @@ sudo ssh -i intern.pem ec2-user@{{IP_ADDRESS}}
 ```
 ansible-playbook playbook.yml -i inventory
 ```
+# Commands
+
+- To view master and data nodes(both on local and external network)
+```
+curl -XGET https://{{IP_ADDRESSS}}:9200/_cat/nodes?v -u 'admin:admin' --insecure
+
+```
+
+- To check elasticsearch logs for ec2 istance
+
+```
+sudo /usr/local/bin/docker-compose logs -f
+```
+- To stop docker compose on ec2 instance(after ssh into it)
+```
+sudo /usr/local/bin/docker-compose down -v
+```
