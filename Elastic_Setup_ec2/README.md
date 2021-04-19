@@ -59,7 +59,7 @@ ansible-playbook playbook.yml -i inventory
 
 - To view master and data nodes(both on local and external network)
 ```
-curl -XGET https://{{IP_ADDRESSS}}:9200/_cat/nodes?v -u 'admin:admin' --insecure
+curl -XGET https://{{IP_ADDRESS}}:9200/_cat/nodes?v -u 'admin:admin' --insecure
 
 ```
 
