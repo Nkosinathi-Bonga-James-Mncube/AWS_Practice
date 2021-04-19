@@ -63,7 +63,7 @@ curl -XGET https://{{IP_ADDRESSS}}:9200/_cat/nodes?v -u 'admin:admin' --insecure
 
 ```
 
-- To check elasticsearch logs for ec2 istance
+- To check elasticsearch logs for ec2 instance
 
 ```
 sudo /usr/local/bin/docker-compose logs -f
