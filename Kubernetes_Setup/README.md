@@ -11,7 +11,7 @@ The following playbooks are run in `create_kube.yml`:
  - `setup.yml`
  - `master-setup`
 
- ### Setup.yml
+ ## Setup.yml
 
  **Install packages**
  - Docker
@@ -116,6 +116,6 @@ Kubectl get nodes
 ```
 ## Reference
 - https://kubernetes.io/docs/home/
-- https://www.digitalocean.com/community/tutorials/how-to-create-a-kubernetes-cluster-using-kubeadm-on-ubuntu-18-04
+- https://www.digitalocean.com/community/tutorials/how-to-create-a-kubernetes-cluster-using-kubeadm-on-centos-7
 
 
