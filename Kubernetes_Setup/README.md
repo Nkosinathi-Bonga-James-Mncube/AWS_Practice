@@ -72,7 +72,7 @@ The following playbooks are run in `create_kube.yml`:
  <br>
  </details>
 
- ## master.yml
+ ## master-setup.yml
  The following task are run:
  **Initialize the cluster**
  - Specify the private subnet with range 10.244.0.0/16
