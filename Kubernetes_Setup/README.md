@@ -2,6 +2,19 @@
 
 - Created a Kubernetes cluster and assign ec2 instance as master node.
 
+<details>
+<summary>What is Kubernetes?</summary>
+
+      -Kubernetes is used for orchestration automates the deployment, management, scaling, and networking of containers
+      -Deploy same application accross different environment without redesign(create microservices)
+      - Automate and manage tasks such as: 
+        - Configuration
+        - Scheduling
+        - Scaling and removing containers
+        - Secure interaction between containers
+
+</details>
+
 ## Prerequisite
  - Add ssh RSA key(.pem) and modify `hosts` file
 
