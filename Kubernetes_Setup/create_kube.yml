@@ -1,0 +1,3 @@
+---
+- import_playbook: kube_playbooks/setup.yml
+- import_playbook: kube_playbooks/master-setup.yml
