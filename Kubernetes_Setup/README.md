@@ -42,7 +42,7 @@ The following playbooks are run in `create_kube.yml`:
  <summary>What is kubeadm?</summary>
  <br>
 
-    - Kubeadm is a tool to create cluster provide commands "kubeadm init" and "kubeadm join"
+    - Kubeadm is a tool to create cluster by using commands "kubeadm init" and "kubeadm join"
 
  </details>
 
