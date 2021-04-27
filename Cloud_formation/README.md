@@ -66,7 +66,3 @@ aws cloudformation describe-stack-events --stack-name CreateEc2
 ```
 aws cloudformation delete-stack --stack-name myteststack
 ```
-# Resources
-
-- https://www.contino.io/insights/aws-cloudformation
-
