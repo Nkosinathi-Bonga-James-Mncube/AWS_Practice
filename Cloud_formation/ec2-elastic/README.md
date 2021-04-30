@@ -64,8 +64,11 @@ chmod 400
 ```
 4. Create cloud formation stack
 ```
-aws cloudformation create-stack --stack-name CreateE2cElastic --template-body file://ec2-elastic.yaml
+aws cloudformation create-stack --stack-name CreateElastic2 --template-body file://ec2-elastic.yaml
 ```
+![Screenshot from 2021-04-30 09-51-59](https://user-images.githubusercontent.com/50704452/116677974-19a8eb80-a9a9-11eb-9473-0bb649917f6c.png)
+
+
 5. Get Public IP address for instance
 ```
     aws ec2 describe-instances
@@ -106,6 +109,8 @@ ssh -i ec2key.pem ec2-user@{{IP_ADDRESS}}
  aws cloudformation describe-stacks
 
  ```
+ ![Screenshot from 2021-04-30 09-51-34](https://user-images.githubusercontent.com/50704452/116678241-5ecd1d80-a9a9-11eb-9d66-f103d680984a.png)
+
 - Check event of Cloud formation stack
 ```
 aws cloudformation describe-stack-events --stack-name CreateEc2
