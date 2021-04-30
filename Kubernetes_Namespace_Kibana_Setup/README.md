@@ -40,7 +40,7 @@
 <br>
 
 # Pre-requisite
- - Add ssh RSA key(.pem) and modify {{IP_ADDRESS}}`hosts` file
+ - Add ssh RSA key(.pem) and modify `{{IP_ADDRESS}}` in `hosts` file
  - Requires `Namspace` and `kubeconfig`
  - Copy `kubeconfig` configuration folder into `kube_playbook`
  - Replace `{{kubeconfig_folder}}` with configuration folder name in `setup-kibana.yml`
@@ -50,7 +50,7 @@ The following playbooks are run in `create_kube.yml`:
 
  - `setup.yml`
  - `master-setup`
- - `kibana-deploy`
+ - `setup-kibana`
 
  # Setup.yml
 
@@ -101,6 +101,7 @@ The following playbooks are run in `create_kube.yml`:
 
  # master-setup.yml
  The following task are run:
+
  **Initialize the cluster**
  - Specify the private subnet with range 10.244.0.0/16
  
@@ -116,8 +117,17 @@ The following playbooks are run in `create_kube.yml`:
 
 <br>
 
-# Kibana_deploy.yml
+# setup-kibana.yml
 
+ **state local connection**
+ - Forcing to perform local tasks (e.g used for running playbook locally and deploy Kubernetes externally)
+ - More details : http://willthames.github.io/2018/07/01/connection-local-vs-delegate_to-localhost.html
+
+ **Adding ansible galaxy**
+ - Package management
+
+  **The following task are run:**
+   - Deploy playbook to run Kinaba headless service and Deploy to namespace
 
 # Installation
 1. Install pipenv
@@ -159,7 +169,7 @@ The following playbooks are run in `create_kube.yml`:
 ```
     Kubectl get nodes
 ```
-To delete deployment
+- To delete deployment
 ```
 kubectl --kubeconfig={{kubeconfig_folder}} --namespace={{namespace_cluster}} delete deployment {{name_of_deployment}}
 ```
