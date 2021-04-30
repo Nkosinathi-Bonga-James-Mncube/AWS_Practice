@@ -1,0 +1,14 @@
+- hosts: all
+  connection: local
+  vars:
+    ansible_python_interpreter: python
+  collections:
+    - community.kubernetes
+  tasks:
+   - name: Deploy Kibana
+     k8s:
+       state: present
+       kubeconfig: "{{playbook_dir}}/{{kubeconfig_folder}}/admin.conf"
+       namespace: k8s-monitoring
+       src: "{{playbook_dir}}/kibana-deploy.yml"
+  
