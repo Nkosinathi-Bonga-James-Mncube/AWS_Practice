@@ -1,5 +1,5 @@
 # Launching ec2 instance with elastic IP using AWS CloudFormation
- - Deploy cloud formation template to create cloudformation stack using aws cli
+ - Deploy cloud formation template to create cloudformation stack using AWS CLI
 
 # Terms
 
@@ -30,7 +30,20 @@
     - Reserves public IP address that you can assign to any EC2 instance in a particular region.
     
  </details>
+
+ <details>
+ <summary>What is AWS CloudFormation Designer?</summary>
+
+    - Graphic tool for creating, viewing, and modifying AWS CloudFormation templates
+    - More info: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.html
+   
+ </details>
  <br>
+
+ # CloudFormation Design diagram
+
+ <img width=30% height=30% src=https://user-images.githubusercontent.com/50704452/116673842-28d96a80-a9a4-11eb-9b64-28f6d224b098.png>
+
 
 
 # Pre-requisite 
