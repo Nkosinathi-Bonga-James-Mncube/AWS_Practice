@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: kibana
-        image: ibs-docker.dkrreg.mmih.biz/opendistro-for-elasticsearch-kibana:1.13.2
+        image: docker.elastic.co/kibana/kibana:7.2.0
         resources:
           limits:
             cpu: 1000m
