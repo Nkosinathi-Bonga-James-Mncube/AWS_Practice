@@ -171,7 +171,7 @@ The following playbooks are run in `create_kube.yml`:
 ```
 - To delete deployment
 ```
-kubectl --kubeconfig={{kubeconfig_folder}} --namespace={{namespace_cluster}} delete deployment {{name_of_deployment}}
+kubectl --kubeconfig={{kubeconfig_file}} --namespace={{namespace_cluster}} delete deployment {{name_of_deployment}}
 ```
 ## Reference
 - https://kubernetes.io/docs/home/
