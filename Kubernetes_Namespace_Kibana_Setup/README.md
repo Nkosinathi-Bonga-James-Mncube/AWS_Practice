@@ -167,7 +167,7 @@ The following playbooks are run in `create_kube.yml`:
 
 - To view nodes (inside ec2 terminal)
 ```
-    Kubectl get nodes
+kubectl --kubeconfig={{kubeconfig_file}} --namespace={{namespace_cluster}} get nodes
 ```
 - To delete deployment
 ```
