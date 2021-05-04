@@ -48,6 +48,7 @@
 
 # Pre-requisite 
 N.B please remnber to add `KeyName` + "Security group for port 22" in template to SSH into ec2
+
 # Installation
 1. Install AWS CLI : https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html 
 1. Copy AWS credentials from AWS Education account and paste in cd ~/.aws/credentials

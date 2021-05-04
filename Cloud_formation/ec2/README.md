@@ -1,15 +1,26 @@
 # Launching ec2 instance using AWS CloudFormation
  - Deploy cloud formation template to create cloudformation stack using aws cli
 
+# Terms
+
 <details>
  <summary>What is AWS cloudformation?</summary>
 
     - AWS service that uses template files to automate the setup of AWS resources
     - Described as IaC(Infrastructure-as-Code) tool for automation setup and deployment
  </details>  
+<br>
 
-## Pre-requisite 
+# CloudFormation Design diagram
+
+<img width=30% height=30% src=https://user-images.githubusercontent.com/50704452/116811460-bdc99880-ab49-11eb-9cc9-704729e57b0f.png>
+
+<br>
+
+# Pre-requisite 
 N.B please remnber to add `KeyName` + "Security group for port 22" in template to SSH into ec2
+<br>
+
 # Installation
 1. Install AWS CLI : https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html 
 1. Copy AWS credentials from AWS Education account and paste in cd ~/.aws/credentials

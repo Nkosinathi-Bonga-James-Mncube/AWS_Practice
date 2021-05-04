@@ -152,9 +152,9 @@ The following playbooks are run in `create_kube.yml`:
     sudo ssh -i intern.pem ec2-user@{{IP_ADDRESS}}
 ```
 8. Replace `{{IP_Address}}` in `hosts` with ec2 instance IP addresss 
-9. Run `create_kube.yml`
+9. Run `initial_setup.yml`
 ```
-    ansible-playbook -i hosts create_kube.yml
+    ansible-playbook -i hosts initial_setup.yml
 ```
 10. To remove Kubernetes run:
 
