@@ -1,0 +1,53 @@
+---
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Metadata:
+        AWS::CloudFormation::Init:
+            configSets:
+                InstallAndRun:
+                    - install_docker
+            install_docker:
+                packages:
+                    yum:
+                        docker: []
+                services:
+                    sysvinit:
+                        docker:
+                            enabled: "true"
+                            ensureRunning: "true"
+                commands:
+                    docker_for_ec2_user:
+                        command: usermod -G docker ec2-user
+
+    CreationPolicy:
+        ResourceSignal:
+            Timeout: PT5M
+    Properties:
+      AvailabilityZone: !Sub ${AWS::Region}a
+      ImageId: ami-a4c7edb2
+      InstanceType: t2.micro
+      KeyName: ec2keyRDS
+      SecurityGroups:
+        - !Ref SSHSecurityGroup
+      UserData:
+        "Fn::Base64":
+            !Sub |
+              #!/bin/bash -xe
+              yum update -y aws-cfn-bootstrap
+              /opt/aws/bin/cfn-init -s ${AWS::StackId} -r MyInstance --configsets InstallAndRun --region ${AWS::Region} 
+              /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackId} --resource MyInstance --region ${AWS::Region}              
+
+
+  SSHSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable SSH access via port 22
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+      - CidrIp: 0.0.0.0/0
+        FromPort: 22
+        IpProtocol: tcp
+        ToPort: 22
