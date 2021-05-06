@@ -27,7 +27,7 @@ Resources:
       AvailabilityZone: !Sub ${AWS::Region}a
       ImageId: ami-a4c7edb2
       InstanceType: t2.micro
-      KeyName: ec2keyRDS
+      KeyName: ec2key
       SecurityGroups:
         - !Ref SSHSecurityGroup
       UserData:
