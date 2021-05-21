@@ -1,0 +1,7 @@
+[masters]
+master ansible_host={{IP_ADDRESS}} ansible_user=ec2-user
+
+[all:vars]
+ansible_python_intrepreter=/usr/bin/python3
+ansible_ssh_private_key_file='{{ playbook_dir }}/{{RSA KEY}}'
+aws_s3_bucket_name={{ BUCKET_NAME }}
