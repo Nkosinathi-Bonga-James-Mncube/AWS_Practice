@@ -33,3 +33,11 @@
       register: output
     - debug:
         msg: '{{ output }}'
+    
+    - name: remove s3 bucket content
+      file:
+        path: /home/{{ ansible_user}}/{{ aws_s3_bucket_name }}
+        state: absent
+      register: output
+    - debug:
+        msg: '{{ output }}'
