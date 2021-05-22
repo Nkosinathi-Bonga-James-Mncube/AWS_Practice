@@ -37,6 +37,16 @@
     https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html
 </details>
 
+<details>
+<summary>What is Docker-compose?</summary>
+<br>
+    - Running multiple containers as single service. You cane use a YAML file to configure your application’s services.
+
+    - More info :
+    https://docs.docker.com/compose/
+</details>
+<br>
+
 # How it works
 - Ansible playbook is run on localhost machine
 - The following tasks are executed:
