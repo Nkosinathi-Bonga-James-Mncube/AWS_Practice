@@ -21,7 +21,7 @@
 <details>
 <summary>What is AWS CLI?</summary>
 <br>
-    - Command Line Interface (CLI) for interactiving with AWS resources
+    - Command Line Interface (CLI) for interacting with AWS resources
 
     - More info :
     https://aws.amazon.com/cli/
