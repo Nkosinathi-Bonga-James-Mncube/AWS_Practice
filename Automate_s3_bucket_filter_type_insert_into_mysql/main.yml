@@ -1,0 +1,130 @@
+---
+- hosts: all
+  become: yes
+  vars:
+    packages:
+      - docker*
+      - python3
+      - pip
+      - docker-py*
+      - docker-compose
+  tasks:
+
+    - name: Install Python3
+      yum:
+        name: python3
+        state: present
+
+    - name: Remove pakages
+      yum: 
+        name: "{{ item }}"
+        state: absent
+      with_items: "{{ packages }}"
+
+    - name: Install Python pip
+      yum:
+        name: python-pip
+        state: present
+    - name: Install Docker py
+      pip: 
+        name: ['docker-py']
+        state: present
+        
+    - name: Install Docker
+      yum:
+        name: docker
+        update_cache: true
+
+    - name: Create folder
+      file:
+        path: /home/{{ ansible_user}}/.aws
+        state: directory
+        mode: '0775'
+      register: output
+    - debug:
+        msg: "{{output}}"
+
+    - name: copying .aws folder
+      copy:
+        src: .aws/
+        dest: /home/{{ ansible_user}}/.aws/
+      register: output
+    - debug:
+        msg: "{{output}}"
+
+    - name: create new s3_bucket
+      file:
+        path: /usr/tmp/{{ ansible_user }}/s3_folder
+        state: directory
+        mode: '0775'
+      register: output
+    - debug:
+        msg: "{{ output }}"    
+
+    - name: Get folders from s3 bucket
+      shell:
+        cmd: AWS_CONFIG_FILE=/home/{{ ansible_user}}/.aws/credentials aws s3 sync s3://{{ aws_s3_bucket_name }} .
+      args:
+        chdir: /usr/tmp/{{ ansible_user }}/s3_folder
+
+
+    - name: Start docker service
+      service: 
+        name: docker
+        state: started
+    - name: add user to group
+      shell:
+        cmd: sudo usermod -aG docker ${USER}
+
+    - name: Restart docker service
+      shell:
+        cmd: sudo service docker restart
+
+    - name: Install docker-compose
+      shell:
+        cmd: | 
+              sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+              sudo chmod +x /usr/local/bin/docker-compose
+    
+    - name: Create mysql folder
+      file:
+        path: /usr/tmp/mysql
+        state: directory
+        mode: '0775'
+      register: output
+    - debug:
+        msg: "{{output}}"
+    
+    - name: Copy docker-compose to mysql folder
+      copy:
+        src: "{{playbook_dir}}/docker-compose/mysql/docker-compose.yml"
+        dest: /usr/tmp
+
+    - name: Run mysql docker-compose
+      shell:
+        cmd: /usr/local/bin/docker-compose up -d
+      args:
+        chdir: /usr/tmp/
+      register: output
+    - debug:
+        msg: "{{output}}"
+
+    - name : Looping through folders for .txt files
+      find:
+         paths: "/usr/tmp/{{ansible_user}}/s3_folder"
+         recurse: yes
+         pattern: "*.txt"
+         file_type: file
+      register: find_results
+    - set_fact:
+         txt_file_location: "{{ find_results.files |json_query('[*].path') }}"
+    - debug:
+        msg: "{{ find_results }}"
+
+    - name: Run xml_script
+      shell:
+        cmd: python3 /usr/tmp/example.py "{{ item }}" "{{ item | dirname | dirname | dirname| basename }}"
+      args:
+        chdir: /usr/tmp/
+      with_items:
+        - "{{ txt_file_location }}"
