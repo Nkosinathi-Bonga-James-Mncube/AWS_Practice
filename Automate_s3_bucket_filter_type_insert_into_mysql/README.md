@@ -134,7 +134,7 @@ credentials folder
 12. Files should be located at:
 
 ```
-/home/ec2-user
+/usr/tmp/s3_folder
 ```
 13. To stop container, remove packages and remove folders
 ```
