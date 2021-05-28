@@ -173,6 +173,10 @@ kubectl --kubeconfig={{kubeconfig_file}} --namespace={{namespace_cluster}} get n
 ```
 kubectl --kubeconfig={{kubeconfig_file}} --namespace={{namespace_cluster}} delete deployment {{name_of_deployment}}
 ```
+- To delete service
+```
+kubectl --kubeconfig={{kubeconfig_file}} --namespace={{namespace_cluster}} delete svc {{name_of_deployment}}
+```
 ## Reference
 - https://kubernetes.io/docs/home/
 - https://www.digitalocean.com/community/tutorials/how-to-create-a-kubernetes-cluster-using-kubeadm-on-centos-7
