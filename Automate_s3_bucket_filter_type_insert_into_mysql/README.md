@@ -119,8 +119,8 @@ sudo ssh -i intern.pem ec2-user@{{IP_ADDRESS}}
  - Replace `{{ PASSWORD }}` in docker-compose/mysql/docker-compose.yml for MYSQL
  - Replace `{{ PASSWORD }}` in xml_scipt.py for MYSQL
  - Replace `{{ RSA KEY }}` in `host`
- - Replace `{{ AWS_ACCESS_KEY }}` `{ AWS_SECRET_ACCESS_KEY }}` `{{ REGION }}
-` `{{ AWS_SESSION_TOKEN }}` in /.aws/credentials folder
+ - Replace `{{ AWS_ACCESS_KEY }}` `{{ AWS_SECRET_ACCESS_KEY }}` `{{ REGION }}`
+ `{{ AWS_SESSION_TOKEN }}` in /.aws/credentials folder
 - If you do not require a session token please remove this line in /.aws/
 credentials folder
 ```
