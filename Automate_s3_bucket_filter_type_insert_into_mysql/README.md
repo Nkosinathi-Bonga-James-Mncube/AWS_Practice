@@ -73,13 +73,13 @@
 **9.Run docker-compose mysql**
  - Set up MYSQL with docker-compose
 
-**10. Loop through folders download from s3 bucket for .txt files**
- - Recusive search inside folder with '.txt', set fact results of location of textfile.
+**10. Loop through folders download from s3 bucket for .csv files**
+ - Recusive search inside folder with '.csv', set fact results of location of .csv.
 
 **11. Execute python script to insert into MYSQL database**
  - Run python script to accept arguments:
 
-     a) .txt file path location
+     a) .csv file path location
 
      b) Name of folder of each folder
    

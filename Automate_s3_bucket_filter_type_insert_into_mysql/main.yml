@@ -109,11 +109,11 @@
     - debug:
         msg: "{{output}}"
 
-    - name : Looping through folders for .txt files
+    - name : Looping through folders for .csv files
       find:
          paths: "/usr/tmp/{{ansible_user}}/s3_folder"
          recurse: yes
-         pattern: "*.txt"
+         pattern: "*.csv"
          file_type: file
       register: find_results
     - set_fact:
