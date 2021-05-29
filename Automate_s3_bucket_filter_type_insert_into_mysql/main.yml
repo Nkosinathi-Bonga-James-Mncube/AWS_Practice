@@ -117,14 +117,12 @@
          file_type: file
       register: find_results
     - set_fact:
-         txt_file_location: "{{ find_results.files |json_query('[*].path') }}"
-    - debug:
-        msg: "{{ find_results }}"
+         csv_file_location: "{{ find_results.files |json_query('[*].path') }}"
 
-    - name: Run xml_script
+    - name: Run python_script
       shell:
         cmd: python3 /usr/tmp/example.py "{{ item }}" "{{ item | dirname | dirname | dirname| basename }}"
       args:
         chdir: /usr/tmp/
       with_items:
-        - "{{ txt_file_location }}"
+        - "{{ csv_file_location }}"
