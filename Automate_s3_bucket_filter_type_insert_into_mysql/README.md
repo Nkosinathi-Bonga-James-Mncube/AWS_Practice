@@ -117,7 +117,7 @@ sudo ssh -i intern.pem ec2-user@{{IP_ADDRESS}}
 - Replace `{{ IP_Address }}` in `hosts` with ec2 instance IP addresss
  - Replace `{{ BUCKET_NAME }}` in `hosts`
  - Replace `{{ PASSWORD }}` in docker-compose/mysql/docker-compose.yml for MYSQL
- - Replace `{{ PASSWORD }}` in xml_scipt.py for MYSQL
+ - Replace `{{ PASSWORD }}` in example.py for MYSQL
  - Replace `{{ RSA KEY }}` in `host`
  - Replace `{{ AWS_ACCESS_KEY }}` `{{ AWS_SECRET_ACCESS_KEY }}` `{{ REGION }}`
  `{{ AWS_SESSION_TOKEN }}` in /.aws/credentials folder
@@ -134,7 +134,7 @@ credentials folder
 12. Files should be located at:
 
 ```
-/home/ec2-user
+/usr/tmp/s3_folder
 ```
 13. To stop container, remove packages and remove folders
 ```
