@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  vars_files:
+    - "vars/credentials.yml"
+
+  tasks:
+  - name: Testing ansible vault
+    debug: 
+      msg: " User: {{ user_name }} Password: {{user_password}}"
