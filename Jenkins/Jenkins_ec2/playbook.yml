@@ -1,0 +1,35 @@
+---
+- hosts: all
+  vars:
+    yum_install:
+      - python3-pip
+      - docker
+  
+  become: yes
+  tasks:
+    - name: yum installation
+      yum:
+        name: "{{item}}"
+        state: latest
+        update_cache: yes
+      loop: "{{yum_install}}"
+
+    - name: start Docker
+      service: 
+        name: docker
+        state: started
+
+    - name: Install Docker-compose
+      pip: 
+        name: docker-compose
+        executable: pip3
+    - name: Copy jenkins docker-compose
+      copy:
+        src: docker-compose.yml
+        dest: /tmp/
+
+    - name: Run docker-compose
+      shell: /usr/local/bin/docker-compose up -d
+      args:
+        chdir: /tmp/
+
