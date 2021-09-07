@@ -1,7 +1,7 @@
 # Automate setup Jenkins container in ec2
 # Pre-requiresite
- - ec2 IP address as `ansible_host`
- - ec2 pem key as `ansible_ssh_private_key_file`
+ - ec2 IP address as `HOST_IP`
+ - ec2 pem key as `SSH_KEY`
 # Installation
 1. Setup up an ec2 instance with ssh key
 2. Run ansible playbook 
