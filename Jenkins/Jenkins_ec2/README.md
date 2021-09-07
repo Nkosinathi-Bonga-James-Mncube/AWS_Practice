@@ -4,6 +4,9 @@
  - ec2 pem key as `SSH_KEY`
 # Installation
 1. Setup up an ec2 instance with ssh key
+```
+N.B to add port 8080 to security group!
+``` 
 2. Run ansible playbook 
 ```
 ansible-playbook -i host playbook
