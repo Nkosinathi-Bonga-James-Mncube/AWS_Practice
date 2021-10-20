@@ -24,24 +24,24 @@
 1. Node (Worker node - simple server/virtual machine)
 
 2. Pod (Running environmnet)
-    > Abstraction layer on top of docker container(only interact with Kubernetes layer)
+    > * Abstraction layer on top of docker container(only interact with Kubernetes layer)
 
-    > Usually one application at a time
+    > * Usually one application at a time
 
-    > Get its own IP address (internall IP address not Public)
+    > * Get its own IP address (internall IP address not Public)
 
-    > When container crash, new pods is created with new IP address
+    > * When container crash, new pods is created with new IP address
 
 
 3. Service(Permanent/static IP address to each Pod)(Communicate with pods)
-    >  Also a load balancer
-    > If pod dies, Service and IP address will stay
-    > Dont have to change the endpoint anymore
+    > * Also a load balancer
+    > * If pod dies, Service and IP address will stay
+    > * Dont have to change the endpoint anymore
 
 4. Ingress(Route traffic to cluster)
-    > Application should be accessible through a browser
+    > * Application should be accessible through a browser
     
-    > Need a external service
+    > * Need a external service
     ```
     eg. Ingress> Service (http://my-app.com:port)
     ```
