@@ -10,7 +10,7 @@
 - Help manage containers application( be hundered or thosands of containers for instance) in different environment (physical machines, virtual or cloud or hybrid)
 
 
-# <img src="icons/thumbs-up-solid.svg" width="3%" height="3%"> Adavantages of Kubernetes 
+# <img src="icons/thumbs-up-solid.svg" width="3%" height="3%"> Advantages of Kubernetes 
 
 - High avaliablity (no downtime)
 - Scability or high performance
@@ -18,8 +18,9 @@
 
 # <img src="icons/layer-group-solid.svg" width="3%" height="3%"> Components in Kubernetes
 <p align="center">
-<img src="img/2.png" height="50%" width="50%">
+<img src="img/2.png" height="60%" width="60%">
 </p>
+
 1. Node (Worker node - simple server/virtual machine)
 
 2. Pod (Running environmnet)
@@ -30,6 +31,7 @@
     > Get its own IP address (internall IP address not Public)
 
     > When container crash, new pods is created with new IP address
+
 
 3. Service(Permanent/static IP address to each Pod)(Communicate with pods)
     >  Also a load balancer
@@ -60,18 +62,19 @@
 # <img src="icons/cogs-solid.svg" width="3%" height="3%"> How it works
 
 <p align="center">
-<img src="img/3.jpg" height="50%" width="50%">
+<img src="img/3.jpg" height="60%" width="60%">
 </p>
 
  - Worker Nodes has mutiple pods on it
  - 3 process must be installed on each node (Container runtime,kublet,Kube proxy)
  - Kublet: 
-                * interact with container + node
-                * starts pod inside container
-                * Assign resource(CPU,RAM) from node to container
+    > * Interact with container + node
+
+    > * Starts pod inside container
+
+    > * Assign resource(CPU,RAM) from node to container
  - Kube Proxy:
-                * Fowards request (e.g make sure my-app fowards request from db service to database pods inside same node)
-                *
+    > * Fowards request (e.g make sure my-app fowards request from db service to database pods inside same node)
 
 # References
 
