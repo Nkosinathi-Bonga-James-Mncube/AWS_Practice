@@ -78,6 +78,5 @@
 
 # References
 
-<img src="icons/youtube-brands.svg" width="3%" height="3%"> Kubernetes Tutorial for Beginners [FULL COURSE in 4 Hours] 
-by  TechWorld with Nana
-https://www.youtube.com/watch?v=X48VuDVv0do
+<img src="icons/youtube-brands.svg" width="3%" height="3%"> [Kubernetes Tutorial for Beginners [FULL COURSE in 4 Hours] 
+by  TechWorld with Nana](https://www.youtube.com/watch?v=X48VuDVv0do)
