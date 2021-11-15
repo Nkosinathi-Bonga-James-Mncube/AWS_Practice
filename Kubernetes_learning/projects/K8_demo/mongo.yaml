@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment #blueprint for pods. defined by template
+metadata:
+  name: mongo-deployment
+  labels: # key/vaule pair.
+    app: mongo
+
+spec:
+  replicas: 1 # number of pods you want to create?
+  selector: # Defines with pods belong to each deploymnet
+    matchLabels:
+      app: mongo
+  template: # config of the pod
+    metadata:
+      labels:
+        app: mongo #required field.Used for replicas of the same pods(e.g mongo-101,mongo-102,mongo-103) share the same common label (e.g each share mongo label)
+    spec:
+      containers: # list of application in pod. Which images will be used in pod?
+      - name: mongodb
+        image: mongo:5.0
+        ports:
+        - containerPort: 27017 # port the container will listen
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-user
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: mongo-password 
+
+---
+apiVersion: v1 # Service is the endpoint to reach mongodb.Using own IP address
+kind: Service
+metadata:
+  name: mongo-service # name of service in mongo-config
+spec:
+  selector:
+    app: mongo # selects pods to forward the request to
+  ports:
+    - protocol: TCP
+      port: 27017 
+      targetPort: 27017 # (Port of pods)should be the same as containerPort of deployment. Forward the request of pods
+
+# NB to scale database rather use  StatefulSet.
