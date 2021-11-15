@@ -1,4 +1,6 @@
 # Create Kubenetes cluster with mongodb and webapp
+<img src="img/index.png">
+
 ## Installation
 1. Run commands:
 ```
