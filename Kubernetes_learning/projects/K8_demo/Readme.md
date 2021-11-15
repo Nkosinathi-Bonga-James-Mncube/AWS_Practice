@@ -1,4 +1,4 @@
-# Create Kubenetes cluster with mongodb and webapp
+# Create Kubenetes cluster with mongodb and webapp (example used by TechWorld with Nana)
 <img src="img/index.png">
 
 ## Installation
@@ -44,4 +44,4 @@ kubectl delete daemonset <daemonset>
 kubectl delete secret mongo-secret
 ```
 # References
--xq
+-[Deploy webapp with mongodbby  TechWorld with Nana](https://www.youtube.com/watch?v=s_o8dwzRlu4)
