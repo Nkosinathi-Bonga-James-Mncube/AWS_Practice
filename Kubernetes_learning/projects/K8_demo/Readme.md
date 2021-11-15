@@ -43,3 +43,4 @@ kubectl delete pods <pods>
 kubectl delete daemonset <daemonset>
 kubectl delete secret mongo-secret
 ```
+# References
