@@ -44,4 +44,4 @@ kubectl delete daemonset <daemonset>
 kubectl delete secret mongo-secret
 ```
 # References
--x
+-xq
