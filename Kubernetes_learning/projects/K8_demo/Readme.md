@@ -20,7 +20,7 @@ kubectl get node -o wide
 ```
 <img src="img/mod.png">
 
-- Get IP address of node (e.g worker node)
+- Get IP address of node (e.g master node)
 - Use is internal IP address+port: 
 ```
 http://xxx-xxx-xx-xx:30100
